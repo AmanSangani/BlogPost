@@ -9,7 +9,6 @@ import RTE from "./RTE";
 import Select from "./Select";
 import AuthLayout from "./AuthLayout";
 import Login from "./Login";
-import Logout from "./Logout";
 import Card from "./Card";
 import PostForm from "./PostForm";
 import SignUp from "./SignUp";
@@ -26,7 +25,6 @@ export {
     Select,
     AuthLayout,
     Login,
-    Logout,
     Card,
     PostForm,
     SignUp,

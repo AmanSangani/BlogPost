@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom'
 function Card({
     $id, title, featuredImage
 }) {
+    console.log(featuredImage);
     return (
         <Link to={`/post/${$id}`}>
             <div className='w-full p-4 bg-gray-500 rounded-xl'>

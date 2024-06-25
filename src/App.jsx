@@ -29,8 +29,8 @@ function App() {
   if (loading) {
     return (
       <>
-        <div className='min-h-screen flex flex-wrap content-between bg-gray-700'>
-          <div className='w-full block'>
+        <div className='flex flex-wrap content-between min-h-screen bg-gray-700'>
+          <div className='block w-full'>
             <h1>Loading</h1>
           </div>
         </div>
@@ -40,11 +40,11 @@ function App() {
   else {
     return (
       <>
-        <div className='min-h-screen flex flex-wrap content-between bg-gray-700 rounded-lg'>
-          <div className='w-full block'>
+        <div className='flex flex-wrap content-between min-h-screen bg-gray-700 rounded-lg'>
+          <div className='block w-full'>
             <Header />
             <main>
-              {/* <Outlet /> */}
+              <Outlet />
             </main>
             <Footer />
           </div>

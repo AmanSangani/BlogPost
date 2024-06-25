@@ -10,19 +10,21 @@ class AuthService {
             .setEndpoint(config.appWriteURL)
             .setProject(config.appWriteProjectID);
         this.account = new Account(this.client);
+        console.log("Hello Auth"+JSON.stringify(this.account)+JSON.stringify(this.client));
     }
 
-    async createAccount(email, password, name) {
+    async createAccount({name,email,password}) {
+        console.log(name+" created" + email + " " + password + " " + ID.unique());
         try {
             const userAcc = await this.account.create(
-                ID.unique,
+                ID.unique(),
                 email,
                 password,
                 name,
             );
             if (userAcc) {
                 //login
-                return this.login(email, password);
+                return this.login({email, password});
             } else {
                 return userAcc;
             }
@@ -31,7 +33,7 @@ class AuthService {
         }
     }
 
-    async login(email, password) {
+    async login({email, password}) {
         try {
             return await this.account.createEmailPasswordSession(email, password);
         } catch (error) {

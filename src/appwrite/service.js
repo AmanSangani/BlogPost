@@ -14,7 +14,7 @@ export class Service {
         this.bucket = new Storage(this.client);
     }
 
-    async createPost({ title, slug, content, featuredImage, status, userId }) {
+    async createPost({ title, slug, content, featuredImage, userId }) {
         try {
             return await this.databases.createDocument(
                 config.appWriteDatabaseID,
@@ -24,7 +24,7 @@ export class Service {
                     title,
                     content,
                     featuredImage,
-                    status,
+                    status : "active",
                     userId,
                 },
             );
@@ -80,7 +80,7 @@ export class Service {
 
     async getAllPosts(queries = [Query.equal("status", "active")]) {
         try {
-            return await this.databases.getListDocument(
+            return await this.databases.listDocuments(
                 config.appWriteDatabaseID,
                 config.appWriteCollectionID,
                 queries,
